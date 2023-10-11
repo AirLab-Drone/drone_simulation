@@ -4,6 +4,8 @@
 # 
 # export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:~/ros2_ws_sim/src/AirLab_in_gazebo/models
 #
+# main test
+
 
 import os
 
