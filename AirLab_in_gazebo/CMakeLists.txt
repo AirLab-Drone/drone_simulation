@@ -21,6 +21,7 @@ if(BUILD_TESTING)
   worlds
   models
   description
+  configs
   DESTINATION share/${PROJECT_NAME}
 )
 
