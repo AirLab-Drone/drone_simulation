@@ -16,12 +16,13 @@ from launch.actions import DeclareLaunchArgument
 
 def generate_launch_description():
     launch_file_dir = os.path.join(get_package_share_directory('turtlebot3_gazebo'), 'launch')
+    AirLab_in_gazebo_launch_file_dir = os.path.join(get_package_share_directory('AirLab_in_gazebo'), 'launch')
     pkg_gazebo_ros = get_package_share_directory('gazebo_ros')
-    pkg_AirLab_in_gazebo = get_package_share_directory('AirLab_in_gazebo')
 
     use_sim_time = LaunchConfiguration('use_sim_time', default='true')
     x_pose = LaunchConfiguration('x_pose', default='0.0')
     y_pose = LaunchConfiguration('y_pose', default='0.0')
+    z_pose = LaunchConfiguration('z_pose', default='0.13')
 
     world = os.path.join(
         get_package_share_directory('AirLab_in_gazebo'),
@@ -30,11 +31,17 @@ def generate_launch_description():
         # 'empty_world.world'
     )
 
-    gazebo = IncludeLaunchDescription(
+    gzserver_cmd = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
-            os.path.join(pkg_gazebo_ros, 'launch', 'gazebo.launch.py')
+            os.path.join(pkg_gazebo_ros, 'launch', 'gzserver.launch.py')
         ),
-        # launch_arguments={'pause': 'true'}.items()
+        launch_arguments={'world': world}.items()
+    )
+
+    gzclient_cmd = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource(
+            os.path.join(pkg_gazebo_ros, 'launch', 'gzclient.launch.py')
+        )
     )
 
     robot_state_publisher_cmd = IncludeLaunchDescription(
@@ -46,25 +53,21 @@ def generate_launch_description():
 
     spawn_turtlebot_cmd = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
-            os.path.join(launch_file_dir, 'spawn_turtlebot3.launch.py')
+            os.path.join(AirLab_in_gazebo_launch_file_dir, 'spawn_robot.launch.py')
         ),
         launch_arguments={
             'x_pose': x_pose,
-            'y_pose': y_pose
+            'y_pose': y_pose,
+            'z_pose': z_pose
         }.items()
-    )
-
-    DeclareLaunchArgument(
-        'world',
-        default_value=[os.path.join(pkg_AirLab_in_gazebo, 'worlds', 'my_house.world'), ''],
-        description='SDF world file',
     )
 
     ld = LaunchDescription()
 
     # Add the commands to the launch description
+    ld.add_action(gzserver_cmd)
+    ld.add_action(gzclient_cmd)
     ld.add_action(robot_state_publisher_cmd)
     ld.add_action(spawn_turtlebot_cmd)
-    ld.add_action(gazebo)
 
     return ld

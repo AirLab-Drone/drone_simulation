@@ -16,12 +16,14 @@ if(BUILD_TESTING)
   # the following line skips the linter which checks for copyrights
   # comment the line when a copyright and license is added to all source files
 
-  install(DIRECTORY
-  launch
-  worlds
-  models
-  description
-  configs
+  install(
+    DIRECTORY
+      launch
+      worlds
+      models
+      description
+      configs
+      map
   DESTINATION share/${PROJECT_NAME}
 )
 
