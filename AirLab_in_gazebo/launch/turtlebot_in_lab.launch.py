@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
 #
-# export TURTLEBOT3_MODEL=waffle
-# export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:/opt/ros/humble/share/turtlebot3_gazebo/models
-
+'''
+export TURTLEBOT3_MODEL=waffle
+export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:/opt/ros/humble/share/turtlebot3_gazebo/models
+export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:~/ros2_ws_sim/src/AirLab_in_gazebo/models
+'''
 
 import os
 
