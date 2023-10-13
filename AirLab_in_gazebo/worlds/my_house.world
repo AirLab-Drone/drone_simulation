@@ -46,11 +46,11 @@
             <static>true</static>
         </include>
 
-        <!-- <include>
+        <include>
             <uri>model://turtlebot3_waffle</uri>
             <pose>0 0 0.135 0 0 0</pose>
             <static>false</static>
-        </include> -->
+        </include>
 
         <!-- <include>
             <uri>model://turtlebot3_burger</uri>

@@ -2,6 +2,8 @@
 <sdf version="1.6">
   <world name="default">
 
+    <xacro:include filename="$(find realsense2_description)/urdf/_d435i_imu_modules.urdf.xacro" />
+
     <include>
       <uri>model://ground_plane</uri>
     </include>

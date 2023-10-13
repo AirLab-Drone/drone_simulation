@@ -516,5 +516,12 @@
       <joint_name>wheel_right_joint</joint_name>
     </plugin>    
 
+
+    <xacro:include filename="$(find realsense2_description)/urdf/_d435i_imu_modules.urdf.xacro" />
+
+    <xacro:sensor_d435i name="camera" topics_ns="camera" parent="base_link" publish_pointcloud="true">
+      <origin xyz="0 0 0.1" rpy="0 0 0" />
+    </xacro:sensor_d435i>
+
   </model>
 </sdf>
