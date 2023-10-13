@@ -3,12 +3,6 @@
   <world name="default">
 
 
-    <xacro:include filename="$(find realsense2_description)/urdf/_d435i.urdf.xacro" />
-
-    <xacro:sensor_d435i name="camera" topics_ns="camera" parent="base_link" publish_pointcloud="true">
-    <origin xyz="0 0 0.1" rpy="0 0 0" />
-    </xacro:sensor_d435i>
-
     <include>
       <uri>model://ground_plane</uri>
     </include>
