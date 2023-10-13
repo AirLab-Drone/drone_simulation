@@ -34,7 +34,7 @@ def generate_launch_description():
 
         DeclareLaunchArgument(
             'world',
-            default_value=[os.path.join(pkg_AirLab_in_gazebo, 'worlds', 'my_house.world'), ''],
+            default_value=[os.path.join(pkg_AirLab_in_gazebo, 'worlds', 'empty_world.world'), ''],
             description='SDF world file',
         ),
         gazebo,
