@@ -4,6 +4,8 @@
 
     <xacro:include filename="robot_core.xacro" />
 
+    <xacro:include filename="gazebo_control.xacro" />
+
     <!-- <link name="base_link"></link> -->
 
     <!-- <xacro:arg name="use_ros2_control" default="true"/>
