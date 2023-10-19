@@ -19,6 +19,10 @@ def generate_launch_description():
     # Process the URDF file
     pkg_path = os.path.join(get_package_share_directory('AirLab_in_gazebo'))
     xacro_file = os.path.join(pkg_path,'description','robot.urdf.xacro')
+
+    # realsense_pkg_path = os.path.join(get_package_share_directory('realsense2_description'))
+    # xacro_file = os.path.join(realsense_pkg_path,'urdf','test_d435i_camera.urdf.xacro')
+
     # robot_description_config = xacro.process_file(xacro_file).toxml()
     robot_description_config = Command(['xacro ', xacro_file, ' use_ros2_control:=', use_ros2_control, ' sim_mode:=', use_sim_time])
     
