@@ -19,8 +19,8 @@
       <visual name="visual">
         <geometry>
          <mesh>
-            <uri>model://realsense_ros_gazebo/meshes/realsense_d435.stl</uri>
-            <!--uri>model://realsense_camera/meshes/D435i.dae</uri-->
+            <!-- <uri>model://realsense_ros_gazebo/meshes/realsense_d435.stl</uri> -->
+            <uri>model://D435i/meshes/D435i.dae</uri>
           </mesh>
         </geometry>
       </visual>

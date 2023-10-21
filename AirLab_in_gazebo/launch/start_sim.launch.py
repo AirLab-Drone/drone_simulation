@@ -27,7 +27,7 @@ def generate_launch_description():
         PythonLaunchDescriptionSource(
             os.path.join(pkg_gazebo_ros, 'launch', 'gazebo.launch.py')
         ),
-        launch_arguments={'pause': 'true'}.items()
+        launch_arguments={'pause': 'false'}.items()
     )
 
     return LaunchDescription([
