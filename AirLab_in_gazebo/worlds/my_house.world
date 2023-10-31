@@ -47,10 +47,16 @@
         </include>
 
         <include>
-            <uri>model://iris_d435i</uri>
+            <uri>model://D435i</uri>
             <pose>0 0 0.135 0 0 0</pose>
             <static>false</static>
         </include>
+
+        <!-- <include>
+            <uri>model://iris_d435i</uri>
+            <pose>0 0 0.135 0 0 0</pose>
+            <static>false</static>
+        </include> -->
 
 
         <!-- <include>
