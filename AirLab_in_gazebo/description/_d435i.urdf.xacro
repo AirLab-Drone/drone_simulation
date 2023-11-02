@@ -20,7 +20,7 @@ aluminum peripherial evaluation case.
                                           align_depth:=false
                                           enable_pointCloud:=false
 
-                                          unite_imu_method:=copy
+                                          unite_imu_method:=linear_interpolation
                                           accel_fps:=250
                                           gyro_fps:=400
 
