@@ -173,9 +173,10 @@ This is the Gazebo URDF model for the Intel RealSense D435i camera
                 <topic>__default_topic__</topic>
                 <plugin name="${camera_name}imu" filename="libgazebo_ros_imu_sensor.so">
                       <ros>
-                        <!-- Will publish to /imu/data -->
-                        <namespace>${camera_name}/imu</namespace>
-                        <remapping>~/out:=sample</remapping>
+                        <!-- Will publish to /camera/imu -->
+                        <!-- <namespace>${camera_name}/imu</namespace> -->
+                        <namespace>/camera</namespace>
+                        <remapping>~/out:=imu</remapping>
                     </ros>
                     <bodyName>${camera_name}_link</bodyName>
                     <frameName>${gyro_optical_frame}</frameName>
@@ -191,15 +192,15 @@ This is the Gazebo URDF model for the Intel RealSense D435i camera
                 <prefix>${camera_name}</prefix>
                 <!-- Color camera settings -->
                 <colorUpdateRate>${color_fps}</colorUpdateRate>
-                <colorTopicName>color/image_raw</colorTopicName>
+                <colorTopicName>camera/color/image_raw</colorTopicName>
                 <colorOpticalframeName>${color_optical_frame}</colorOpticalframeName>
                 <colorCameraInfoTopicName>color/camera_info</colorCameraInfoTopicName>
                 <!-- Infrared camera settings -->
                 <infraredUpdateRate>${infra_fps}</infraredUpdateRate>
-                <infrared1TopicName>infra1/image_rect_raw</infrared1TopicName>
-                <infrared2TopicName>infra2/image_rect_raw</infrared2TopicName>
-                <infrared1CameraInfoTopicName>infra1/camera_info</infrared1CameraInfoTopicName>
-                <infrared2CameraInfoTopicName>infra2/camera_info</infrared2CameraInfoTopicName>
+                <infrared1TopicName>camera/infra1/image_rect_raw</infrared1TopicName>
+                <infrared2TopicName>camera/infra2/image_rect_raw</infrared2TopicName>
+                <infrared1CameraInfoTopicName>camera/infra1/camera_info</infrared1CameraInfoTopicName>
+                <infrared2CameraInfoTopicName>camera/infra2/camera_info</infrared2CameraInfoTopicName>
                 <infrared1OpticalframeName>${infrared1_optical_frame}</infrared1OpticalframeName>
                 <infrared2OpticalframeName>${infrared2_optical_frame}</infrared2OpticalframeName>
                 <!-- Depth camera settings -->
@@ -212,14 +213,14 @@ This is the Gazebo URDF model for the Intel RealSense D435i camera
                 </xacro:if>
                 <xacro:unless value="${align_depth}">
                     <depthUpdateRate>${depth_fps}</depthUpdateRate>
-                    <depthTopicName>depth/image_rect_raw</depthTopicName>
-                    <depthCameraInfoTopicName>depth/camera_info</depthCameraInfoTopicName>
+                    <depthTopicName>camera/depth/image_rect_raw</depthTopicName>
+                    <depthCameraInfoTopicName>camera/depth/camera_info</depthCameraInfoTopicName>
                     <depthOpticalframeName>${depth_optical_frame}</depthOpticalframeName>
                 </xacro:unless>
                 <xacro:if value="${align_depth}">
                     <depthUpdateRate>${color_fps}</depthUpdateRate>
-                    <depthTopicName>aligned_depth_to_color/image_raw</depthTopicName>
-                    <depthCameraInfoTopicName>aligned_depth_to_color/camera_info</depthCameraInfoTopicName>
+                    <depthTopicName>camera/aligned_depth_to_color/image_raw</depthTopicName>
+                    <depthCameraInfoTopicName>camera/aligned_depth_to_color/camera_info</depthCameraInfoTopicName>
                     <depthOpticalframeName>${color_optical_frame}</depthOpticalframeName>
                 </xacro:if>
                 <!-- Pointlcloud settings -->
