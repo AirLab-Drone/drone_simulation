@@ -48,9 +48,9 @@ def launch_setup(context, *args, **kwargs):
 
     remappings=[
           ('imu', '/imu/data'),
-          ('rgb/image', '/camera/infra1/image_rect_raw'),
+          ('rgb/image', '/camera/infra1/image_raw'),
           ('rgb/camera_info', '/camera/infra1/camera_info'),
-          ('depth/image', '/camera/depth/image_rect_raw')] 
+          ('depth/image', '/camera/depth/image_raw')] 
 
     return [
 
