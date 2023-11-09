@@ -31,9 +31,14 @@ class ConditionalText(Substitution):
             
 def launch_setup(context, *args, **kwargs):     
 
+
+    use_sim_time = LaunchConfiguration('use_sim_time')
+
+
     parameters=[{
-    # 'frame_id':'camera_link',
-    'frame_id':'camera_color_optical_frame',
+    'frame_id':'camera_link',
+    # 'frame_id':'camera_color_optical_frame',
+    'use_sim_time':use_sim_time,
     'subscribe_depth':True,
     'subscribe_odom_info':True,
     'approx_sync':False,
@@ -48,9 +53,9 @@ def launch_setup(context, *args, **kwargs):
 
     remappings=[
           ('imu', '/imu/data'),
-          ('rgb/image', '/camera/infra1/image_raw'),
+          ('rgb/image', '/camera/infra1/image_rect_raw'),
           ('rgb/camera_info', '/camera/infra1/camera_info'),
-          ('depth/image', '/camera/depth/image_raw')] 
+          ('depth/image', '/camera/depth/image_rect_raw')] 
 
     return [
 
@@ -150,6 +155,12 @@ def generate_launch_description():
         
         DeclareLaunchArgument('rtabmap_args',   default_value='',                   
                               description='Backward compatibility, use "args" instead.'),
+
+        DeclareLaunchArgument('use_sim_time', default_value='true',
+                              description='Use simulation (Gazebo) clock if true'),
+
+
+
 
         OpaqueFunction(function=launch_setup)
 

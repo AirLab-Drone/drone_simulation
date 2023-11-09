@@ -172,7 +172,7 @@ This is the Gazebo URDF model for the Intel RealSense D435i camera
                 <!-- <topic>${camera_name}/imu/sample</topic> -->
                 <topic>__default_topic__</topic>
                 <plugin name="${camera_name}imu" filename="libgazebo_ros_imu_sensor.so">
-                      <ros>
+                    <ros>
                         <!-- Will publish to /camera/imu -->
                         <!-- <namespace>${camera_name}/imu</namespace> -->
                         <namespace>/camera</namespace>
