@@ -4,8 +4,10 @@ from ament_index_python.packages import get_package_share_directory
 
 
 from launch import LaunchDescription
-from launch.actions import IncludeLaunchDescription
+from launch.actions import IncludeLaunchDescription, DeclareLaunchArgument, SetEnvironmentVariable
 from launch.launch_description_sources import PythonLaunchDescriptionSource
+from launch.substitutions import LaunchConfiguration
+from launch.conditions import IfCondition, UnlessCondition
 
 from launch_ros.actions import Node
 
@@ -13,31 +15,18 @@ from launch_ros.actions import Node
 
 def generate_launch_description():
 
+    robot_name = LaunchConfiguration('robot_name')
+    height = LaunchConfiguration('height')
 
-    # Include the robot_state_publisher launch file, provided by our own package. Force sim time to be enabled
-    # !!! MAKE SURE YOU SET THE PACKAGE NAME CORRECTLY !!!
-
-    package_name='AirLab_in_gazebo' #<--- CHANGE ME
+    package_name='AirLab_in_gazebo'
 
     rsp = IncludeLaunchDescription(
                 PythonLaunchDescriptionSource([os.path.join(
                     get_package_share_directory(package_name),'launch','rsp.launch.py'
-                )]), launch_arguments={'use_sim_time': 'true', 'use_ros2_control': 'true'}.items()
+                )]), 
+                launch_arguments = {'use_sim_time': 'true',
+                                    'use_ros2_control': 'true'}.items()
     )
-
-    # joystick = IncludeLaunchDescription(
-    #             PythonLaunchDescriptionSource([os.path.join(
-    #                 get_package_share_directory(package_name),'launch','joystick.launch.py'
-    #             )]), launch_arguments={'use_sim_time': 'true'}.items()
-    # )
-
-    # twist_mux_params = os.path.join(get_package_share_directory(package_name),'config','twist_mux.yaml')
-    # twist_mux = Node(
-    #         package="twist_mux",
-    #         executable="twist_mux",
-    #         parameters=[twist_mux_params, {'use_sim_time': True}],
-    #         remappings=[('/cmd_vel_out','/diff_cont/cmd_vel_unstamped')]
-    #     )
 
     gazebo_params_file = os.path.join(get_package_share_directory(package_name),'configs','gazebo_params.yaml')
 
@@ -52,49 +41,42 @@ def generate_launch_description():
     # Run the spawner node from the gazebo_ros package. The entity name doesn't really matter if you only have a single robot.
     spawn_entity = Node(package='gazebo_ros', executable='spawn_entity.py',
                         arguments=['-topic', 'robot_description',
-                                   '-entity', 'my_bot',
-                                   '-z', '0.13'],
+                                   '-entity', robot_name,
+                                   '-z', height],
                         output='screen')
 
-
-    # diff_drive_spawner = Node(
-    #     package="controller_manager",
-    #     executable="spawner.py",
-    #     arguments=["diff_cont"],
-    # )
-
-    # joint_broad_spawner = Node(
-    #     package="controller_manager",
-    #     executable="spawner.py",
-    #     arguments=["joint_broad"],
-    # )
-
-
-    # Code for delaying a node (I haven't tested how effective it is)
-    # 
-    # First add the below lines to imports
-    # from launch.actions import RegisterEventHandler
-    # from launch.event_handlers import OnProcessExit
-    #
-    # Then add the following below the current diff_drive_spawner
-    # delayed_diff_drive_spawner = RegisterEventHandler(
-    #     event_handler=OnProcessExit(
-    #         target_action=spawn_entity,
-    #         on_exit=[diff_drive_spawner],
-    #     )
-    # )
-    #
-    # Replace the diff_drive_spawner in the final return with delayed_diff_drive_spawner
+    # rviz2
+    rviz =  Node(
+        package='rviz2',
+        namespace='',
+        executable='rviz2',
+        name='rviz2',
+        condition=IfCondition(LaunchConfiguration("rviz")),
+        arguments=['-d' + os.path.join(get_package_share_directory(package_name), 'configs', 'sim.rviz')]
+        )
 
 
 
     # Launch them all!
     return LaunchDescription([
+
+        # Launch arguments
+        DeclareLaunchArgument(
+            'robot_name', default_value='airlab_drone',
+            description='The name of robot'),
+
+        DeclareLaunchArgument(
+            'height', default_value='0.13',
+            description='The height of robot generate'),
+
+        DeclareLaunchArgument(
+            'rviz', default_value='false', 
+            description='Launch RVIZ (optional).'),
+
+
         rsp,
-        # joystick,
-        # twist_mux,
         gazebo,
         spawn_entity,
-        # diff_drive_spawner,
-        # joint_broad_spawner
+        rviz,
+
     ])

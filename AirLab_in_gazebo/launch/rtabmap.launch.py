@@ -33,20 +33,22 @@ def launch_setup(context, *args, **kwargs):
 
 
     use_sim_time = LaunchConfiguration('use_sim_time')
+    qos = LaunchConfiguration('qos')
+    localization = LaunchConfiguration('localization')
 
 
-    parameters=[{
+    parameters={
     'frame_id':'camera_link',
     # 'frame_id':'camera_color_optical_frame',
     'use_sim_time':use_sim_time,
     'subscribe_depth':True,
     'subscribe_odom_info':True,
     'approx_sync':False,
+    'qos_image':qos,
+    'qos_imu':qos,
     'wait_imu_to_init':True
-    }]
+    }
 
-
-    # test github
 
     # /camera/infra1/image_rect_raw,
     # /camera/depth/image_rect_raw,
@@ -66,27 +68,30 @@ def launch_setup(context, *args, **kwargs):
     
         Node(
             package='rtabmap_odom', executable='rgbd_odometry', output='screen',
-            parameters=parameters,
+            parameters=[parameters],
             remappings=remappings),
 
 
+        # SLAM mode:
         Node(
+            condition=UnlessCondition(localization),
             package='rtabmap_slam', executable='rtabmap', output='screen',
-            parameters=[{   'frame_id':'camera_link',
-                            'subscribe_depth':True,
-                            'subscribe_odom_info':True,
-                            'approx_sync':False,
-                            'wait_imu_to_init':True,
-                            "database_path": LaunchConfiguration('database_path'),
-                            "Mem/IncrementalMemory": ConditionalText("true", "false", IfCondition(PythonExpression(["'", LaunchConfiguration('localization'), "' != 'true'"]))._predicate_func(context)).perform(context),
-                            "Mem/InitWMWithAllNodes": ConditionalText("true", "false", IfCondition(PythonExpression(["'", LaunchConfiguration('localization'), "' == 'true'"]))._predicate_func(context)).perform(context)}],
+            parameters=[parameters],
             remappings=remappings,
-            arguments=[LaunchConfiguration("args")],
-        ),
+            arguments=['-d']), # This will delete the previous database (~/.ros/rtabmap.db)
+            
+        # Localization mode:
+        Node(
+            condition=IfCondition(localization),
+            package='rtabmap_slam', executable='rtabmap', output='screen',
+            parameters=[parameters,
+              {'Mem/IncrementalMemory':'False',
+               'Mem/InitWMWithAllNodes':'True'}],
+            remappings=remappings),
 
         Node(
             package='rtabmap_viz', executable='rtabmap_viz', output='screen',
-            parameters=parameters,
+            parameters=[parameters],
             condition=IfCondition(LaunchConfiguration("rtabmap_viz")),
             remappings=remappings),
 
@@ -160,6 +165,9 @@ def generate_launch_description():
 
         DeclareLaunchArgument('use_sim_time', default_value='true',
                               description='Use simulation (Gazebo) clock if true'),
+        
+        DeclareLaunchArgument('qos', default_value='2',
+                              description='QoS used for input sensor topics'),
 
 
 

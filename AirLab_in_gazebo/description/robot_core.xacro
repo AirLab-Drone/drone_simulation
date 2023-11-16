@@ -85,7 +85,7 @@
     </link>
 
     <gazebo reference="chassis">
-        <material>Gazebo/White</material>
+        <material>Gazebo/CeilingTiled</material>
     </gazebo>
 
     <!-- LEFT WHEEL LINK -->
