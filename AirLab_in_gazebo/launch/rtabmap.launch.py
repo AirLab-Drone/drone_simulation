@@ -46,13 +46,9 @@ def launch_setup(context, *args, **kwargs):
     }]
 
 
-    # git test!!
-
-
-
-            # /camera/infra1/image_rect_raw,
-            # /camera/depth/image_rect_raw,
-            # /camera/infra1/camera_info
+    # /camera/infra1/image_rect_raw,
+    # /camera/depth/image_rect_raw,
+    # /camera/infra1/camera_info
 
 
     remappings=[
