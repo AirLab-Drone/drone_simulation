@@ -1,30 +1,10 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" >
 
-    <material name="white">
-        <color rgba="1 1 1 1" />
-    </material>
-
-    <material name="orange">
-        <color rgba="1 0.3 0.1 1"/>
-    </material>
-
-    <material name="blue">
-        <color rgba="0.2 0.2 1 1"/>
-    </material>
-
-    <material name="black">
-        <color rgba="0 0 0 1"/>
-    </material>
-
-    <material name="red">
-        <color rgba="1 0 0 1"/>
-    </material>
-
     <joint name="camera_joint" type="fixed">
-        <parent link="base_link"/>
+        <parent link="chassis"/>
         <child link="camera_link"/>
-        <origin xyz="0 0 0.5" rpy="0 0 0"/>
+        <origin xyz="0.276 0 0.181" rpy="0 0.18 0"/>
     </joint>
 
     <link name="camera_link">
@@ -74,12 +54,12 @@
                 </clip>
             </camera>
             <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
+                <frame_name>camera_link_optical</frame_name>
                 <ros>
                     <namespace>custom_ns</namespace>
                     <remapping>image_raw:=custom_img</remapping>
                     <remapping>camera_info:=custom_info</remapping>
                 </ros>
-                <frame_name>camera_link_optical</frame_name>
             </plugin>
         </sensor>
     </gazebo>
