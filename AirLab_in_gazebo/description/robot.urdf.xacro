@@ -19,7 +19,6 @@
 
     <link name="base_link" />
 
-
     <xacro:include filename="depth_camera.xacro" />
 
 
