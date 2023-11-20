@@ -19,8 +19,8 @@
 
     <link name="base_link" />
 
-    <xacro:include filename="depth_camera.xacro" />
-
+    <!-- <xacro:include filename="depth_camera.xacro" /> -->
+    <xacro:include filename="camera.xacro" />
 
     <!-- <xacro:include filename="_d435i.urdf.xacro"/>
     <xacro:sensor_d435i parent="base_link" name="camera" topics_ns="camera"> 
