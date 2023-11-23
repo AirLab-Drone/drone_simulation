@@ -227,6 +227,9 @@ This is the Gazebo URDF model for the Intel RealSense D435i camera
                 <pointCloud>${enable_pointCloud}</pointCloud>
                 <pointCloudTopicName>depth/color/points</pointCloudTopicName>
                 <pointCloudCutoff>0.5</pointCloudCutoff>
+                <!-- <ros>
+                    <namespace>/camera</namespace>
+                </ros> -->
             </plugin>
         </gazebo>
     </xacro:macro>
