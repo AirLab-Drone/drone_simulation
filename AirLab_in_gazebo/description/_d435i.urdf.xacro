@@ -13,15 +13,15 @@ aluminum peripherial evaluation case.
 <robot name="sensor_d435i" xmlns:xacro="http://ros.org/wiki/xacro">
     <!--File includes-->
     <xacro:include filename="_d435i.gazebo.xacro"/>
-    <xacro:macro name="sensor_d435i" params="parent
+    <!-- <xacro:macro name="sensor_d435i" params="parent
                                           name:=camera
                                           topics_ns:=camera
-                                          visualize:=false
-                                          align_depth:=false
-                                          enable_pointCloud:=false
+                                          visualize:=true
+                                          align_depth:=true
+                                          enable_pointCloud:=true
 
                                           unite_imu_method:=linear_interpolation
-                                          accel_fps:=250
+                                          accel_fps:=250 
                                           gyro_fps:=400
 
                                           clip_distance:=-1.0
@@ -29,12 +29,37 @@ aluminum peripherial evaluation case.
                                           depth_height:=720
                                           depth_fps:=30
 
-                                          infra_width:=640
-                                          infra_height:=480
+                                          infra_width:=1280
+                                          infra_height:=720
                                           infra_fps:=30
 
                                           color_width:=1920
                                           color_height:=1080
+                                          color_fps:=30
+
+                                          *origin"> -->
+    <xacro:macro name="sensor_d435i" params="parent
+                                          name:=camera
+                                          topics_ns:=camera
+                                          visualize:=true
+                                          align_depth:=true
+                                          enable_pointCloud:=true
+
+                                          unite_imu_method:=linear_interpolation
+                                          accel_fps:=63
+                                          gyro_fps:=200
+
+                                          clip_distance:=-1.0
+                                          depth_width:=848
+                                          depth_height:=480
+                                          depth_fps:=30
+
+                                          infra_width:=848
+                                          infra_height:=480
+                                          infra_fps:=30
+
+                                          color_width:=1280
+                                          color_height:=720
                                           color_fps:=30
 
                                           *origin">
