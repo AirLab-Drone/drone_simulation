@@ -39,7 +39,6 @@ def launch_setup(context, *args, **kwargs):
 
     parameters={
     'frame_id':'camera_link',
-    # 'frame_id':'camera_color_optical_frame',
     'use_sim_time':use_sim_time,
     'subscribe_depth':True,
     'subscribe_odom_info':True,
