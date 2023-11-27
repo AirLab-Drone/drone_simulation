@@ -11,7 +11,7 @@
     <!-- origin is the position between chassis and realsense d435i -->
     <xacro:include filename="_d435i.urdf.xacro"/>
     <xacro:sensor_d435i parent="chassis" name="camera" topics_ns="camera"> 
-        <origin xyz="-0.01 0.0 0.13" rpy="0.0 0.0 ${pi}"/>
+        <origin xyz="0.35 0.0 0.13" rpy="0.0 0.0 0.0"/>
     </xacro:sensor_d435i>
 
 

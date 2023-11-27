@@ -13,6 +13,7 @@ aluminum peripherial evaluation case.
 <robot name="sensor_d435i" xmlns:xacro="http://ros.org/wiki/xacro">
     <!--File includes-->
     <xacro:include filename="_d435i.gazebo.xacro"/>
+    <!-- 原本的參數 -->
     <!-- <xacro:macro name="sensor_d435i" params="parent
                                           name:=camera
                                           topics_ns:=camera
@@ -42,7 +43,7 @@ aluminum peripherial evaluation case.
                                           name:=camera
                                           topics_ns:=camera
                                           visualize:=true
-                                          align_depth:=true
+                                          align_depth:=false
                                           enable_pointCloud:=true
 
                                           unite_imu_method:=linear_interpolation
