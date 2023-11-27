@@ -58,8 +58,8 @@ aluminum peripherial evaluation case.
                                           infra_height:=480
                                           infra_fps:=30
 
-                                          color_width:=1280
-                                          color_height:=720
+                                          color_width:=848
+                                          color_height:=480
                                           color_fps:=30
 
                                           *origin">
