@@ -1,3 +1,10 @@
+
+'''
+Change your work space name
+export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:~/ros2_ws_sim/src/AirLab_in_gazebo/models
+ros2 launch AirLab_in_gazebo launch_sim.launch.py world:=./src/AirLab_in_gazebo/worlds/my_house.world 
+'''
+
 import os
 
 from ament_index_python.packages import get_package_share_directory
@@ -44,7 +51,8 @@ def generate_launch_description():
                 PythonLaunchDescriptionSource([os.path.join(
                     get_package_share_directory('gazebo_ros'), 'launch', 'gazebo.launch.py')]),
                     launch_arguments={
-                        'extra_gazebo_args': '--ros-args --params-file ' + gazebo_params_file
+                        'extra_gazebo_args': '--ros-args --params-file ' + gazebo_params_file,
+                        'world': world
                     }.items()
     )
 

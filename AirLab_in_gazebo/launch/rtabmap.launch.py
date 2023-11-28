@@ -46,7 +46,7 @@ def launch_setup(context, *args, **kwargs):
     'approx_sync':True,
     'qos_image':qos,
     'qos_imu':qos,
-    'wait_imu_to_init':False
+    'wait_imu_to_init':True
     }
 
     # use infra camera
