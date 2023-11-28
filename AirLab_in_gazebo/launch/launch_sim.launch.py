@@ -50,18 +50,18 @@ def generate_launch_description():
 
 
 
-    gzserver_cmd = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource([os.path.join(
-            get_package_share_directory('gazebo_ros'), 'launch', 'gzserver.launch.py')]
-            ),
-            launch_arguments={'world': world}.items()
-    )
+    # gzserver_cmd = IncludeLaunchDescription(
+    #     PythonLaunchDescriptionSource([os.path.join(
+    #         get_package_share_directory('gazebo_ros'), 'launch', 'gzserver.launch.py')]
+    #         ),
+    #         launch_arguments={'world': world}.items()
+    # )
 
-    gzclient_cmd = IncludeLaunchDescription(
-       PythonLaunchDescriptionSource([os.path.join(
-                    get_package_share_directory('gazebo_ros'), 'launch', 'gzclient.launch.py')]
-        )
-    )
+    # gzclient_cmd = IncludeLaunchDescription(
+    #    PythonLaunchDescriptionSource([os.path.join(
+    #                 get_package_share_directory('gazebo_ros'), 'launch', 'gzclient.launch.py')]
+    #     )
+    # )
 
 
     # Run the spawner node from the gazebo_ros package. The entity name doesn't really matter if you only have a single robot.
@@ -99,10 +99,10 @@ def generate_launch_description():
             'rviz', default_value='false', 
             description='Launch RVIZ (optional).'),
 
-        gzserver_cmd,
-        gzclient_cmd,
+        # gzserver_cmd,
+        # gzclient_cmd,
         rsp,
-        # gazebo,
+        gazebo,
         spawn_entity,
         rviz,
 

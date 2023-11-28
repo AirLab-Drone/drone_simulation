@@ -38,7 +38,8 @@ def launch_setup(context, *args, **kwargs):
 
 
     parameters={
-    'frame_id':'camera_link',
+    # 'frame_id':'camera_link',
+    'frame_id':'base_link',
     'use_sim_time':use_sim_time,
     'subscribe_depth':True,
     'subscribe_odom_info':True,
@@ -48,22 +49,20 @@ def launch_setup(context, *args, **kwargs):
     'wait_imu_to_init':False
     }
 
-
-    # /camera/infra1/image_rect_raw,
-    # /camera/depth/image_rect_raw,
-    # /camera/infra1/camera_info
-
-
-    remappings=[
-          ('imu', '/imu/data'),
-          ('rgb/image', '/camera/infra1/image_rect_raw'),
-          ('rgb/camera_info', '/camera/infra1/camera_info'),
-          ('depth/image', '/camera/depth/image_rect_raw')] 
-
+    # use infra camera
     # remappings=[
-    #     ('rgb/image', '/camera/camera/image_raw'),
-    #     ('rgb/camera_info', '/camera/camera/camera_info'),
-    #     ('depth/image', '/camera/camera/depth/image_raw')]
+    #       ('imu', '/imu/data'),
+    #       ('rgb/image', '/camera/infra1/image_rect_raw'),
+    #       ('rgb/camera_info', '/camera/infra1/camera_info'),
+    #       ('depth/image', '/camera/depth/image_rect_raw')] 
+    
+    # use color camera 
+    remappings=[
+        ('imu', '/imu/data'),
+        ('rgb/image', '/camera/color/image_raw'),
+        ('rgb/camera_info', '/camera/color/camera_info'),
+        ('depth/image', '/camera/depth/image_rect_raw')] 
+
 
     return [
 
