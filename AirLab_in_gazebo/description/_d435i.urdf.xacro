@@ -113,6 +113,7 @@ aluminum peripherial evaluation case.
                 <origin xyz="0 ${-d435i_cam_depth_py} 0" rpy="0 0 0"/>
                 <geometry>
                     <box size="${d435i_cam_depth} ${d435i_cam_width} ${d435i_cam_height}"/>
+                    <!-- <mesh filename="package://realsense2_description/meshes/d435.dae"/> -->
                 </geometry>
             </collision>
             <inertial>
