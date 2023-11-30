@@ -43,7 +43,7 @@ def launch_setup(context, *args, **kwargs):
     'use_sim_time':use_sim_time,
     'subscribe_depth':True,
     'subscribe_odom_info':True,
-    'approx_sync':False,
+    'approx_sync':True,
     'qos_image':qos,
     'qos_imu':qos,
     'wait_imu_to_init':True
