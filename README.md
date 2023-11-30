@@ -25,7 +25,7 @@
 
 
 ### 也許需要安裝
-** Gazebo classic **
+**Gazebo classic**
 ```
 sudo apt install ros-humble-gazebo-ros-pkgs
 ```
