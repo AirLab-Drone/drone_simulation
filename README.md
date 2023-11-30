@@ -11,12 +11,6 @@
             <a href="https://releases.ubuntu.com/jammy/">Ubuntu 22.04</a>
         </td>
     </tr>
-    <tr>
-        <td>
-        </td>
-        <td>
-        </td>
-    </tr>
 </table>
 
 ## 依賴
