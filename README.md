@@ -11,9 +11,14 @@
             <a href="https://releases.ubuntu.com/jammy/">Ubuntu 22.04</a>
         </td>
     </tr>
+    <tr>
+        <td>ROS</td>
+        <td>         
+            <a href="https://docs.ros.org/en/humble/index.html">Humble</a>
+        </td>
+    </tr>
 </table>
 
 ## 依賴
-- 安裝 [ros2-humble](https://docs.ros.org/en/humble/index.html)
 - 安裝 [rtabmap-ros](https://github.com/introlab/rtabmap_ros)
 - 安裝 [realsense-ros](https://github.com/IntelRealSense/realsense-ros)
