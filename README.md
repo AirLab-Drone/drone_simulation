@@ -3,6 +3,6 @@
 ## 好啦 考慮跟你說 :3
 
 ## 環境
--安裝 ros2-humble
--安裝 rtabmap-ros
--安裝 realsense-ros
+- 安裝 ros2-humble
+- 安裝 rtabmap-ros
+- 安裝 realsense-ros
