@@ -74,7 +74,7 @@ def launch_setup(context, *args, **kwargs):
             parameters=[parameters],
             remappings=remappings),
 
-
+        # TODO: database 路徑
         # SLAM mode:
         Node(
             condition=UnlessCondition(localization),
