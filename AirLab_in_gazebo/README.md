@@ -7,14 +7,14 @@ ros2 launch AirLab_in_gazebo launch_sim.launch.py
 ```
 啟動rtabmap
 ```
-ros2 launch AirLab_in_gazebo rtabmap.launch.py -d mode:=false
+ros2 launch AirLab_in_gazebo rtabmap.launch.py -d localization:=false
 ```
 paramters
 
 | **參數名稱**     | **default value** | **description**                     |
 |--------------|-------------------|---------------------------------------|
 | rtabmap_args |                   | If --delete_db_on_start/-d: 刪除原本地圖|     
-| mode         | false             | If true: Launch in localization mode. |
+| localization | false             | If true: Launch in localization mode. |
 | rtabmap_viz  | false             | Launch RTAB-Map UI (optional).        |
 | rviz         | true              | Launch RVIZ (optional).               |
 
