@@ -1,9 +1,13 @@
 ### Simulate Realsense D435i VSLAM in RTAB-Map  ###
 
-
+啟動虛擬環境
 ```
 export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:~/ros2_ws/src/AirLab_in_gazebo/models
 ros2 launch AirLab_in_gazebo launch_sim.launch.py 
+```
+啟動rtabmap
+```
+ros2 launch AirLab_in_gazebo rtabmap.launch.py    
 ```
 
 
