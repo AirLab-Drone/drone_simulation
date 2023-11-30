@@ -2,7 +2,7 @@
 '''
 Change your work space name
 export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:~/ros2_ws/src/AirLab_in_gazebo/models
-ros2 launch AirLab_in_gazebo launch_sim.launch.py world:=./src/AirLab_in_gazebo/worlds/my_house.world 
+ros2 launch AirLab_in_gazebo launch_sim.launch.py
 '''
 
 import os
@@ -79,8 +79,6 @@ def generate_launch_description():
         )
 
 
-
-    # Launch them all!
     return LaunchDescription([
 
         # Launch arguments
