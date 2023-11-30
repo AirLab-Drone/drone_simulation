@@ -43,7 +43,7 @@ def launch_setup(context, *args, **kwargs):
     'use_sim_time':use_sim_time,
     'subscribe_depth':True,
     'subscribe_odom_info':True,
-    'approx_sync':True,
+    'approx_sync':False,
     'qos_image':qos,
     'qos_imu':qos,
     'wait_imu_to_init':True
@@ -171,9 +171,6 @@ def generate_launch_description():
         
         DeclareLaunchArgument('qos', default_value='2',
                               description='QoS used for input sensor topics'),
-
-
-
 
         OpaqueFunction(function=launch_setup)
 

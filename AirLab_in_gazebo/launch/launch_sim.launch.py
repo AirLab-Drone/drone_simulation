@@ -6,16 +6,13 @@ ros2 launch AirLab_in_gazebo launch_sim.launch.py world:=./src/AirLab_in_gazebo/
 '''
 
 import os
-
+import xacro
 from ament_index_python.packages import get_package_share_directory
-
-
 from launch import LaunchDescription
 from launch.actions import IncludeLaunchDescription, DeclareLaunchArgument, SetEnvironmentVariable
 from launch.launch_description_sources import PythonLaunchDescriptionSource
-from launch.substitutions import LaunchConfiguration
+from launch.substitutions import LaunchConfiguration, Command
 from launch.conditions import IfCondition, UnlessCondition
-
 from launch_ros.actions import Node
 
 
@@ -24,16 +21,24 @@ def generate_launch_description():
 
     robot_name = LaunchConfiguration('robot_name')
     height = LaunchConfiguration('height')
+    use_sim_time = LaunchConfiguration('use_sim_time')
 
     package_name='AirLab_in_gazebo'
+
+    pkg_path = os.path.join(get_package_share_directory(package_name))
+    xacro_file = os.path.join(pkg_path,'description','robot.urdf.xacro')
     
 
-    rsp = IncludeLaunchDescription(
-                PythonLaunchDescriptionSource([os.path.join(
-                    get_package_share_directory(package_name),'launch','rsp.launch.py'
-                )]), 
-                launch_arguments = {'use_sim_time': 'true',
-                                    'use_ros2_control': 'true'}.items()
+    robot_description_config = Command([
+        'xacro ', xacro_file
+        ])
+
+    params = {'robot_description': robot_description_config}
+    node_robot_state_publisher = Node(
+        package='robot_state_publisher',
+        executable='robot_state_publisher',
+        output='screen',
+        parameters=[params]
     )
 
 
@@ -55,22 +60,6 @@ def generate_launch_description():
                         'world': world
                     }.items()
     )
-
-
-
-    # gzserver_cmd = IncludeLaunchDescription(
-    #     PythonLaunchDescriptionSource([os.path.join(
-    #         get_package_share_directory('gazebo_ros'), 'launch', 'gzserver.launch.py')]
-    #         ),
-    #         launch_arguments={'world': world}.items()
-    # )
-
-    # gzclient_cmd = IncludeLaunchDescription(
-    #    PythonLaunchDescriptionSource([os.path.join(
-    #                 get_package_share_directory('gazebo_ros'), 'launch', 'gzclient.launch.py')]
-    #     )
-    # )
-
 
     # Run the spawner node from the gazebo_ros package. The entity name doesn't really matter if you only have a single robot.
     spawn_entity = Node(package='gazebo_ros', executable='spawn_entity.py',
@@ -96,6 +85,11 @@ def generate_launch_description():
 
         # Launch arguments
         DeclareLaunchArgument(
+            'use_sim_time',
+            default_value='true',
+            description='Use sim time if true'),
+
+        DeclareLaunchArgument(
             'robot_name', default_value='airlab_drone',
             description='The name of robot'),
 
@@ -106,10 +100,8 @@ def generate_launch_description():
         DeclareLaunchArgument(
             'rviz', default_value='false', 
             description='Launch RVIZ (optional).'),
-
-        # gzserver_cmd,
-        # gzclient_cmd,
-        rsp,
+        
+        node_robot_state_publisher,
         gazebo,
         spawn_entity,
         rviz,
