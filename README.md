@@ -3,6 +3,20 @@
 ## 好啦 考慮跟你說 :3
 
 ## 環境
+<table>
+<tbody>
+    <tr>
+        <td>作業系統</td>
+        <td>Ubuntu 22.04</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+    </tr>
+    </tbody>
+</table>
+
+## 依賴
 - 安裝 [ros2-humble](https://docs.ros.org/en/humble/index.html)
 - 安裝 [rtabmap-ros](https://github.com/introlab/rtabmap_ros)
 - 安裝 [realsense-ros](https://github.com/IntelRealSense/realsense-ros)
