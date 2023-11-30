@@ -3,3 +3,6 @@
 
 # 忽略 config 目錄下的 database.yml 檔案
 # config/database.yml
+
+
+*.vscode
