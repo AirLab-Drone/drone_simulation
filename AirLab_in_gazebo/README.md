@@ -7,9 +7,9 @@ ros2 launch AirLab_in_gazebo launch_sim.launch.py
 ```
 啟動rtabmap
 ```
-ros2 launch AirLab_in_gazebo rtabmap.launch.py    
+ros2 launch AirLab_in_gazebo rtabmap.launch.py -d mode:=false
 ```
-## paramters
+paramters
 
 | **參數名稱**     | **default value** | **description**                     |
 |--------------|-------------------|---------------------------------------|
