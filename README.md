@@ -21,4 +21,11 @@
 
 ## 依賴
 - 安裝 [rtabmap-ros](https://github.com/introlab/rtabmap_ros)
-- 安裝 [realsense-ros](https://github.com/IntelRealSense/realsense-ros)
+- 安裝 [realsense-ros](https://github.com/IntelRealSense/realsense-ros)  
+
+
+### 也許需要安裝
+Gazebo classic
+```
+sudo apt install ros-humble-gazebo-ros-pkgs
+```
