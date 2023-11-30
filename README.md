@@ -7,15 +7,14 @@
 <tbody>
     <tr>
         <td>作業系統</td>
-        <td>Ubuntu 22.04</td>
+        <td>         
+            <a href="https://releases.ubuntu.com/jammy/">Ubuntu 22.04</a>
+        </td>
     </tr>
     <tr>
         <td>
-         <a href="https://hub.docker.com/r/introlab3it/rtabmap_ros">rtabmap_ros</a>
         </td>
-        <td></td>
     </tr>
-    </tbody>
 </table>
 
 ## 依賴
