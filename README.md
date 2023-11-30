@@ -10,7 +10,9 @@
         <td>Ubuntu 22.04</td>
     </tr>
     <tr>
-        <td></td>
+        <td>
+         <a href="https://hub.docker.com/r/introlab3it/rtabmap_ros">rtabmap_ros</a>
+        </td>
         <td></td>
     </tr>
     </tbody>
