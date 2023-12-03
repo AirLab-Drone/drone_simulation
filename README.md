@@ -11,7 +11,7 @@
             <a href="https://releases.ubuntu.com/jammy/">Ubuntu 22.04</a>
         </td>
         <td>
-            ![Static Badge](https://img.shields.io/badge/ubuntu-test-purple)
+            <img alt="Static Badge" src="https://img.shields.io/badge/ubuntu-test-purple">
         </td>
     </tr>
     <tr>
