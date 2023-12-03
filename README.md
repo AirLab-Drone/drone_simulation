@@ -10,6 +10,9 @@
         <td>         
             <a href="https://releases.ubuntu.com/jammy/">Ubuntu 22.04</a>
         </td>
+        <td>
+            ![Static Badge](https://img.shields.io/badge/ubuntu-test-purple)
+        </td>
     </tr>
     <tr>
         <td>ROS</td>
