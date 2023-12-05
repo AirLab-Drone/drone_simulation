@@ -46,7 +46,7 @@ def launch_setup(context, *args, **kwargs):
     'approx_sync':True,
     'qos_image':qos,
     'qos_imu':qos,
-    'wait_imu_to_init':True
+    'wait_imu_to_init':False
     }
 
     # use infra camera
@@ -57,11 +57,18 @@ def launch_setup(context, *args, **kwargs):
     #       ('depth/image', '/camera/depth/image_rect_raw')] 
     
     # use color camera 
+    # remappings=[
+    #     ('imu', '/imu/data'),
+    #     ('rgb/image', '/camera/color/image_raw'),
+    #     ('rgb/camera_info', '/camera/color/camera_info'),
+    #     ('depth/image', '/camera/depth/image_rect_raw')] 
+
+    # use color camera 
     remappings=[
         ('imu', '/imu/data'),
-        ('rgb/image', '/camera/color/image_raw'),
-        ('rgb/camera_info', '/camera/color/camera_info'),
-        ('depth/image', '/camera/depth/image_rect_raw')] 
+        ('rgb/image', '/camera/image_raw'),
+        ('rgb/camera_info', '/camera/camera_info'),
+        ('depth/image', '/camera/depth/image_raw')] 
 
 
     return [

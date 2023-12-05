@@ -4,20 +4,13 @@
     <joint name="camera_joint" type="fixed">
         <parent link="chassis"/>
         <child link="camera_link"/>
-        <origin xyz="0.276 0 0.181" rpy="0 0 0"/>
+        <origin xyz="0.305 0 0.08" rpy="0 0 0"/>
     </joint>
 
     <link name="camera_link">
         <visual>
             <geometry>
                 <box size="0.010 0.03 0.03"/>
-            </geometry>
-            <material name="red"/>
-        </visual>
-        <visual>
-            <origin xyz="0 0 -0.05"/>
-            <geometry>
-                <cylinder radius="0.002" length="0.1"/>
             </geometry>
             <material name="red"/>
         </visual>
@@ -40,7 +33,7 @@
         <sensor name="camera" type="depth">
             <pose> 0 0 0 0 0 0 </pose>
             <visualize>true</visualize>
-            <update_rate>10</update_rate>
+            <update_rate>60</update_rate>
             <camera>
                 <horizontal_fov>1.089</horizontal_fov>
                 <image>
@@ -54,9 +47,6 @@
                 </clip>
             </camera>
             <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
-                <ros>
-                    <namespace>camera</namespace>
-                </ros>
                 <frame_name>camera_link_optical</frame_name>
                 <min_depth>0.1</min_depth>
                 <max_depth>100.0</max_depth>
