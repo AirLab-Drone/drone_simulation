@@ -28,6 +28,12 @@
 
 - 安裝 [realsense-ros](https://github.com/IntelRealSense/realsense-ros)
 
+- 安裝 [Octomap](https://github.com/OctoMap)
+    ``` 
+    sudo apt-get install ros-humble-octomap*
+
+    ```
+
 
 ### 也許需要安裝
 **Gazebo classic**

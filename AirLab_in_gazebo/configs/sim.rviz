@@ -26,7 +26,7 @@ Panels:
     Experimental: false
     Name: Time
     SyncMode: 0
-    SyncSource: MapCloud
+    SyncSource: ""
 Visualization Manager:
   Class: ""
   Displays:
@@ -178,7 +178,7 @@ Visualization Manager:
       Download graph: false
       Download map: false
       Download namespace: rtabmap
-      Enabled: true
+      Enabled: false
       Filter ceiling (m): 0
       Filter floor (m): 0
       Invert Rainbow: false
@@ -202,7 +202,7 @@ Visualization Manager:
         Value: /mapData
       Use Fixed Frame: true
       Use rainbow: true
-      Value: true
+      Value: false
     - Class: rviz_default_plugins/Image
       Enabled: true
       Max Value: 1
@@ -231,6 +231,23 @@ Visualization Manager:
         Reliability Policy: Reliable
         Value: /camera/depth/image_raw
       Value: true
+    - Class: octomap_rviz_plugins/ColorOccupancyGrid
+      Enabled: true
+      Max. Height Display: 3.4028234663852886e+38
+      Max. Octree Depth: 16
+      Min. Height Display: -3.4028234663852886e+38
+      Name: ColorOccupancyGrid
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        Filter size: 10
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /octomap_binary
+      Value: true
+      Voxel Alpha: 1
+      Voxel Coloring: Z-Axis
+      Voxel Rendering: Occupied Voxels
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
@@ -277,25 +294,25 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz_default_plugins/Orbit
-      Distance: 3.620441198348999
+      Distance: 7.131979942321777
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: 0.7065025568008423
-        Y: 0.2294037640094757
-        Z: 0.6530244946479797
+        X: 0.9523564577102661
+        Y: 0.8837058544158936
+        Z: 0.3122134208679199
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.5247964859008789
+      Pitch: 0.13479651510715485
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 2.381761312484741
+      Yaw: 1.9967595338821411
     Saved: ~
 Window Geometry:
   Displays:
