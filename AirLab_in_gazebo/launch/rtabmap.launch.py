@@ -47,7 +47,7 @@ def launch_setup(context, *args, **kwargs):
     'approx_sync': False,
     'qos_image': qos,
     'qos_imu': qos,
-    'wait_imu_to_init': False,
+    'wait_imu_to_init': True,
     'database_path': database_path,
     }
 
@@ -83,7 +83,6 @@ def launch_setup(context, *args, **kwargs):
             parameters=[parameters],
             remappings=remappings),
 
-        # TODO: database 路徑
         # SLAM mode:
         Node(
             condition=UnlessCondition(localization),

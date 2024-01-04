@@ -8,6 +8,8 @@
 
     <xacro:include filename="depth_camera.xacro" />
 
+    <xacro:include filename="imu.xacro" />
+
     <!-- origin is the position between chassis and realsense d435i -->
     <!-- <xacro:include filename="_d435i.urdf.xacro"/>
     <xacro:sensor_d435i parent="chassis" name="camera" topics_ns="camera"> 

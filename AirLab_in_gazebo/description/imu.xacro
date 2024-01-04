@@ -38,8 +38,8 @@
             <plugin name='imu_plugin' filename='libgazebo_ros_imu_sensor.so'>
                 <ros>
                     <!-- Will publish to /imu/data -->
-                    <namespace>/imu</namespace>
-                    <remapping>~/out:=data</remapping>
+                    <namespace>/camera</namespace>
+                    <remapping>~/out:=imu</remapping>
                 </ros>
                 <bodyName>imu_sensor_link</bodyName>
                 <updateRateHZ>10.0</updateRateHZ>
