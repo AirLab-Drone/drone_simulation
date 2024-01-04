@@ -43,7 +43,7 @@ def launch_setup(context, *args, **kwargs):
     'use_sim_time':use_sim_time,
     'subscribe_depth':True,
     'subscribe_odom_info':True,
-    'approx_sync':True,
+    'approx_sync':False,
     'qos_image':qos,
     'qos_imu':qos,
     'wait_imu_to_init':False
@@ -158,7 +158,7 @@ def generate_launch_description():
         DeclareLaunchArgument('localization', default_value='false', 
                               description='Launch in localization mode.'),
         
-        DeclareLaunchArgument('rtabmap_viz', default_value='true',  
+        DeclareLaunchArgument('rtabmap_viz', default_value='false',  
                               description='Launch RTAB-Map UI (optional).'),
         
         DeclareLaunchArgument('rviz', default_value='true', 

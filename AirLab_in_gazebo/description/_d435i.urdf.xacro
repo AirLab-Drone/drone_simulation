@@ -53,15 +53,15 @@ aluminum peripherial evaluation case.
                                           clip_distance:=-1.0
                                           depth_width:=848
                                           depth_height:=480
-                                          depth_fps:=30
+                                          depth_fps:=60
 
                                           infra_width:=848
                                           infra_height:=480
-                                          infra_fps:=30
+                                          infra_fps:=60
 
                                           color_width:=848
                                           color_height:=480
-                                          color_fps:=30
+                                          color_fps:=60
 
                                           *origin">
         <xacro:property name="M_PI" value="3.1415926535897931"/>

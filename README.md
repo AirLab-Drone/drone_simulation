@@ -24,6 +24,8 @@
 
 ## 依賴
 - 安裝 [rtabmap-ros](https://github.com/introlab/rtabmap_ros)
+    (測試安裝 from source)
+
 - 安裝 [realsense-ros](https://github.com/IntelRealSense/realsense-ros)
 
 
