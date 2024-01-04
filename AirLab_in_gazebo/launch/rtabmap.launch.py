@@ -35,18 +35,20 @@ def launch_setup(context, *args, **kwargs):
     use_sim_time = LaunchConfiguration('use_sim_time')
     qos = LaunchConfiguration('qos')
     localization = LaunchConfiguration('localization')
+    database_path = LaunchConfiguration('database_path')
 
 
     parameters={
     # 'frame_id':'camera_link',
-    'frame_id':'base_link',
-    'use_sim_time':use_sim_time,
-    'subscribe_depth':True,
-    'subscribe_odom_info':True,
-    'approx_sync':False,
-    'qos_image':qos,
-    'qos_imu':qos,
-    'wait_imu_to_init':False
+    'frame_id': 'base_link',
+    'use_sim_time': use_sim_time,
+    'subscribe_depth': True,
+    'subscribe_odom_info': True,
+    'approx_sync': False,
+    'qos_image': qos,
+    'qos_imu': qos,
+    'wait_imu_to_init': False,
+    'database_path': database_path,
     }
 
     # use infra camera
@@ -96,7 +98,7 @@ def launch_setup(context, *args, **kwargs):
             package='rtabmap_slam', executable='rtabmap', output='screen',
             parameters=[parameters,
               {'Mem/IncrementalMemory':'False',
-               'Mem/InitWMWithAllNodes':'True'}],
+               'Mem/InitWMWithAllNodes':'True',}],
             remappings=remappings),
 
         Node(
@@ -152,7 +154,7 @@ def generate_launch_description():
         DeclareLaunchArgument('approx_sync_max_interval', default_value='0.0', 
                               description='(sec) 0 means infinite interval duration (used with approx_sync=true)'),
         
-        DeclareLaunchArgument('database_path', default_value='~/ros2_ws/src/drone_vslam/map_database/rtabmap.db',  
+        DeclareLaunchArgument('database_path', default_value='~/ros2_ws/src/AirLab_in_gazebo/map_database/rtabmap.db',  
                               description='Where is the map saved/loaded.'),
         
         DeclareLaunchArgument('localization', default_value='false', 

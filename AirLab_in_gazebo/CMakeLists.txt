@@ -24,6 +24,7 @@ if(BUILD_TESTING)
       description
       configs
       map
+      map_database
   DESTINATION share/${PROJECT_NAME}
 )
 
