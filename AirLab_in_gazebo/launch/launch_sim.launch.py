@@ -1,8 +1,14 @@
 
 '''
-Change your work space name
-export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:~/ros2_ws/src/AirLab_in_gazebo/models
-ros2 launch AirLab_in_gazebo launch_sim.launch.py
+please check your folder(work_space) name!!!
+
+run: 
+    export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:~/ros2_ws/src/AirLab_in_gazebo/models
+    ros2 launch AirLab_in_gazebo launch_sim.launch.py
+
+if your gazebo is died
+try:
+    source /usr/share/gazebo/setup.bash
 '''
 
 import os

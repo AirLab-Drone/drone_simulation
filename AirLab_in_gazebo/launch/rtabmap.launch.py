@@ -97,7 +97,10 @@ def launch_setup(context, *args, **kwargs):
             package='rtabmap_slam', executable='rtabmap', output='screen',
             parameters=[parameters,
               {'Mem/IncrementalMemory':'False',
-               'Mem/InitWMWithAllNodes':'True',}],
+               'Mem/InitWMWithAllNodes':'True',
+            #    'Grid/RayTracing':'True',
+            #    'map_always_update':True,
+               }],
             remappings=remappings),
 
         Node(

@@ -46,6 +46,34 @@
             <static>true</static>
         </include>
 
+        <include>
+            <name>block1</name>
+            <uri>model://cinder_block_2</uri>
+            <pose>-3.58 0.8 0.124 0 0 0.37</pose>
+            <static>true</static>
+        </include>
+        
+        <include>
+            <name>block2</name>
+            <uri>model://cinder_block_2</uri>
+            <pose>-3.58 0.8 0.266 0 0 -0.265</pose>
+            <static>true</static>
+        </include>
+
+        <include>
+            <name>block3</name>
+            <uri>model://cinder_block_2</uri>
+            <pose>-3.58 0.8 0.408 0 0 </pose>
+            <static>true</static>
+        </include>
+
+        <include>
+            <name>block4</name>
+            <uri>model://cinder_block_2</uri>
+            <pose>-3.58 0.8 0.55 0 -0.4 </pose>
+            <static>true</static>
+        </include>
+
         <!-- <include>
             <uri>model://D435i</uri>
             <pose>0 0 0.135 0 0 0</pose>
