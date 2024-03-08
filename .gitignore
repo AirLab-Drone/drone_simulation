@@ -6,4 +6,4 @@
 
 
 *.vscode
-AirLab_in_gazebo/map_database/rtabmap.db
+/AirLab_in_gazebo/map_database/rtabmap.db
